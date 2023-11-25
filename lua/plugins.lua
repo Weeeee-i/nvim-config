@@ -92,6 +92,16 @@ require('lazy').setup({
     init = function()
       require('nvim-tree').setup()
     end,
+  },
+
+  -- colorscheme
+  {
+    'rose-pine/neovim',
+    name = 'rose-pine'
+  },
+
+  {
+    'stevearc/conform.nvim',
   }
 
 })

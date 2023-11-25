@@ -4,3 +4,6 @@ require('keymaps')
 
 require('nvim-cmp')
 require('autopair')
+require('conform_config')
+
+vim.cmd('colorscheme rose-pine')
