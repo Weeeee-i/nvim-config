@@ -96,8 +96,7 @@ require("lazy").setup({
 
 	-- colorscheme
 	{
-		"rose-pine/neovim",
-		name = "rose-pine",
+		"savq/melange-nvim",
 	},
 
 	{
