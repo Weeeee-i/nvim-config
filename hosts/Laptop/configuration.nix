@@ -12,6 +12,7 @@
       enable = true;
       efiSupport = true;
       useOSProber = true;
+      devices = [ "nodev" ];
     };
 
     efi.canTouchEfiVariables = true;
@@ -45,11 +46,7 @@
     isNormalUser = true;
     extraGroups = [ "wheel" ];
     shell = pkgs.zsh;
-    # Run `mkpasswd`
-    # hashedPassworld = "";
-    openssh.authorizedKeys.keys = [
-      "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCbo945Ii/F5Gtu6OUYcwPcQe9z+czqMR7olEea5Kx+7NMVNQklPuMiMunqf+Xv5FtCu0GUAOtUoD0yZYR/1hF2wMaO44ghr0Otdk+mbsqmDfRUNB6Y2OjZnfCR6r/WOhutyiEF+wX6/JJ1SzxSOfOkHiy0E5s2si3sigtF8y+W9rQss8tyudDj/biyo66VeGC8VqcMsEC/+KL/SInGdiMainRvFRp/o1xg0oQgPrhj8jEWH/QwzCI21qBovhPmkcO4TFhoCGk0L2h7mS3xRKzW58dH3eEA7fiAm1v5wxzlejvh1IVVptsQAnL0+qhs4OhQhwDdZr8GBY5Dqrx4roiBefJds14x2sobGBmUe93TVpWoUKZ+ieOrREq2T3LYTykG2lzxBwfQoGEupC1p/bhZtQoA/N3e0AsvJbjcd3UhFyjoCfgWN5HGKx1UoOuYJFWm5DiFZ6yVDKo8rHxisi+SWIlP6G7cQ55waqa26MHiBmZxwyPmd9AbJfRm6fVqbq8= wei@W"
-    ];
+    hashedPassword = "$y$j9T$lhKSti7iSzlS.YX11UQSp/$oF21Wlg456Zq9rBCBgN4b.0GBYGxSgg/G8zDEd9GY1/";
   };
 
   environment.systemPackages = with pkgs; [

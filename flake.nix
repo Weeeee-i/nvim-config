@@ -33,7 +33,7 @@
   };
 
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, impermanence, ... }@inputs: {
 
     nixosConfigurations = {
 
@@ -55,7 +55,7 @@
       "W" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./hosts/Lenovo_XiaoXin_Pro16_2021
+          ./hosts/Laptop
 
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
@@ -63,7 +63,7 @@
             home-manager.users.wei = import ./home;
           }
 
-          impermanence.nixosModules.impermanence
+          # impermanence.nixosModules.impermanence
         ];
       };
     };
