@@ -45,24 +45,26 @@
 
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
-	    home-manager.useUserPackages = true;
-	    home-manager.users.wei = import ./home;
-	  }
+	          home-manager.useUserPackages = true; 
+            home-manager.users.wei = import ./home;
+          }
   
         ];
       };
 
       "W" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-	modules = [
+        modules = [
           ./hosts/Lenovo_XiaoXin_Pro16_2021
 
-	  home-manager.nixosModules.home-manager {
+          home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
-	    home-manager.useUserPackages = true;
-	    home-manager.users.wei = import ./home;
-	  }
-	];
+            home-manager.useUserPackages = true;
+            home-manager.users.wei = import ./home;
+          }
+
+          impermanence.nixosModules.impermanence
+        ];
       };
     };
   };
