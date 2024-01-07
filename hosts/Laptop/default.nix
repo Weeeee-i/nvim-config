@@ -14,6 +14,7 @@
     ../common/polkit.nix
     ../common/xdg.nix
     ../common/auto_clean.nix
+    ../common/podman.nix
 
   ];
 
