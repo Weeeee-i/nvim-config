@@ -13,6 +13,7 @@
     brightnessctl
     keepassxc
     p7zip
+    gh
   ];
 
 }
