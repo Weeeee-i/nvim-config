@@ -4,6 +4,6 @@
 
   fonts.fontconfig = {
     enable = true;
-  };
+ };
 
 }

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, anyrun, ... }:
 
 {
 
@@ -11,13 +11,6 @@
     userEmail = "weeeeei@duck.com";
   };
 
-  home.packages = with pkgs; [
-    neofetch
-    p7zip
-    ripgrep
-    neofetch
-  ];
-
   imports = [
 
     ./zsh
@@ -25,6 +18,7 @@
     ./applications
     ./inputMethods
     ./fontconfig
+    ./eww
 
   ];
 

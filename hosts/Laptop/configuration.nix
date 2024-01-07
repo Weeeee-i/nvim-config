@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
+
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -54,7 +55,10 @@
     git
   ];
 
-  environment.variables.EDITOR = "nvim";
+  environment.variables = {
+    EDITOR = "nvim";
+    NXIOS_OZONE_WL = "1";
+  };
 
   programs.zsh.enable = true;
 
