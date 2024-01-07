@@ -1,4 +1,3 @@
-; Windows foldstart
 (defwindow bar0
   :monitor 0
   :hexpand false
@@ -11,104 +10,94 @@
   :exclusive true
   (bar0))
 
-; Bar foldstart
 (defwidget bar0 []
   (box :orientation "h"
-       :space-evenly false
-       :class "bar"
+    :space-evenly false
+    :class "bar"
     (box :halign "start"
-         :space-evenly false)
+    :space-evenly false)
     (box :halign "end"
-         :spacing 12
-         :hexpand true
-         :space-evenly false
+      :spacing 12
+      :hexpand true
+      :space-evenly false
       (microphone)
       (speaker)
       (ping)
       (network)
       (ram)
       (cpu)
+      (battery)
       (date)
       (time))))
 
-; foldend
 
-; Variables foldstart
 (defpoll time_poll :interval "1s" "date +%H:%M")
 (defpoll date_poll :interval "1m" "date +%d/%m/%Y")
 (defpoll ping_poll :interval "10s" "./modules/ping.sh")
+(defpoll battery   :interval "10s" "./modules/battery.sh")
 
 (deflisten remaining_listen :initial "" "remaining-time")
 
-; Make this cleaner at some point
 (defpoll microphone_poll :initial "{}" :interval "0.1s" "./modules/microphone.sh")
 (defpoll speaker_poll :initial "{}" :interval "0.1s" "./modules/speaker.sh")
-; foldend
 
-; Modules foldstart
-; Generic icon module foldstart
 (defwidget icon-module [icon ?class ?visible]
   (box :class "${class} icon-module"
-       :orientation "h"
-       :halign "end"
-       :space-evenly false
-       :visible {visible ?: true} ; because the argument is optional
+    :orientation "h"
+    :halign "end"
+    :space-evenly false
+    :visible {visible ?: true} ; because the argument is optional
     (label :class "icon-module__icon" :text "${icon}")
     (children)))
-; foldend
 
-; Polybar-Style modules foldstart
 
 (defwidget ram []
   (icon-module :class "ram" :icon "RAM" :visible {EWW_RAM.used_mem_perc != ""}
     (label :text "${round(EWW_RAM.used_mem_perc, 0)}%")))
 
 (defwidget date []
-  (icon-module :class "date" :icon "" 
+  (icon-module :class "date" :icon ""
     (label :text date_poll)))
 
 (defwidget time []
-  (icon-module :class "time" :icon "" 
-    (label :text time_poll))) 
+  (icon-module :class "time" :icon ""
+    (label :text time_poll)))
 
 (defwidget cpu []
-  (icon-module :class "cpu" :icon "CPU" 
-    (label :text "${round(EWW_CPU.avg, 0)}%"))) 
+  (icon-module :class "cpu" :icon "CPU"
+    (label :text "${round(EWW_CPU.avg, 0)}%")))
 
 (defwidget ping []
   (icon-module :class "ping" :icon "PING"
-    (label :text ping_poll))) 
+    (label :text ping_poll)))
 
 (defwidget network []
   (icon-module :class "network" :icon "NET"
-    (label :text "${round(EWW_NET.wlo1.NET_UP / 1000000, 2)}/${round(EWW_NET.wlo1.NET_DOWN / 1000000, 2)}"))) 
+    (label :text "${round(EWW_NET.wlo1.NET_UP / 1000000, 2)}/${round(EWW_NET.wlo1.NET_DOWN / 1000000, 2)}")))
 
 (defwidget speaker []
-  (icon-module :class "speaker" 
-               :icon {speaker_poll.icon}
+  (icon-module :class "speaker"
+    :icon {speaker_poll.icon}
     (eventbox :onscroll `eww update speaker_poll="$(./modules/speaker.sh {})"`
       (button :onclick `eww update speaker_poll="$(./modules/speaker.sh toogle)"`
         (label :text {speaker_poll.content})))))
 
 (defwidget microphone []
-  (icon-module :class "microphone" 
-               :icon {microphone_poll.icon}
+  (icon-module :class "microphone"
+    :icon {microphone_poll.icon}
     (eventbox :onscroll `eww update microphone_poll="$(./modules/microphone.sh {})"`
       (button :onclick `eww update microphone_poll="$(./modules/microphone.sh toogle)"`
         (label :text {microphone_poll.content})))))
-; foldend
 
-; foldend
+(defwidget battery []
+  (icon-module :class "battery" :icon ""
+    (label :text battery)))
 
-; Clock foldstart 
+
 (defwidget clock []
   (box :orientation "v"
-       :space-evenly false
-       :class "clock"
-
-    (label :class "title" :text "Remaining time today") 
+    :space-evenly false
+    :class "clock"
+    
+    (label :class "title" :text "Remaining time today")
     (label :vexpand true :class "remaining_time" :text remaining_listen)))
-; foldend
-
-
-; vim:foldmarker=foldstart,foldend

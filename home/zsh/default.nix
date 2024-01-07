@@ -1,4 +1,4 @@
-{ libs, pkgs, ...}:
+{ libs, pkgs, ... }:
 
 {
 

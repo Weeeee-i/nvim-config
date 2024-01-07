@@ -13,6 +13,7 @@
     ../common/graphics.nix
     ../common/polkit.nix
     ../common/xdg.nix
+    ../common/auto_clean.nix
 
   ];
 

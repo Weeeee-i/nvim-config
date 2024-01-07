@@ -2,12 +2,8 @@
 
 {
 
-  imports = [
-    ./browsers.nix
-    ./term.nix
-    ./launcher.nix
-  ];
-  
+  imports = [ ./browsers.nix ./term.nix ./launcher.nix ./editor.nix ./syncthing.nix ];
+
   home.packages = with pkgs; [
     htop
     tldr
@@ -15,18 +11,8 @@
     nixfmt
     wlr-randr
     brightnessctl
-
+    keepassxc
     p7zip
   ];
-
-  programs.vscode = {
-    enable = true;
-    package = pkgs.vscodium;
-    extensions = with pkgs.vscode-extensions; [
-      vscodevim.vim
-      bbenoist.nix
-      brettm12345.nixfmt-vscode
-    ];
-  };
 
 }

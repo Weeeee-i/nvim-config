@@ -15,7 +15,7 @@
       sansSerif = [ "Noto Sans CJK SC" ];
       monospace = [ "JetBrains Mono" ];
     };
- 
+
   };
 
 }

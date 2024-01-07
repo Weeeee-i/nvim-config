@@ -2,10 +2,9 @@
 
 {
 
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader = {
@@ -47,13 +46,11 @@
     isNormalUser = true;
     extraGroups = [ "wheel" ];
     shell = pkgs.zsh;
-    hashedPassword = "$y$j9T$lhKSti7iSzlS.YX11UQSp/$oF21Wlg456Zq9rBCBgN4b.0GBYGxSgg/G8zDEd9GY1/";
+    hashedPassword =
+      "$y$j9T$lhKSti7iSzlS.YX11UQSp/$oF21Wlg456Zq9rBCBgN4b.0GBYGxSgg/G8zDEd9GY1/";
   };
 
-  environment.systemPackages = with pkgs; [
-    neovim
-    git
-  ];
+  environment.systemPackages = with pkgs; [ neovim git ];
 
   environment.variables = {
     EDITOR = "nvim";

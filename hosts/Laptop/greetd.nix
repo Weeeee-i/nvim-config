@@ -1,4 +1,4 @@
-{ libs, pkgs, ...}:
+{ libs, pkgs, ... }:
 
 {
 
@@ -7,13 +7,11 @@
     settings = {
       default_session = {
         command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd Hyprland";
-	user = "greeter";
+        user = "greeter";
       };
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    greetd.tuigreet
-  ];
+  environment.systemPackages = with pkgs; [ greetd.tuigreet ];
 
 }

@@ -8,7 +8,7 @@ case $1 in
 esac
 
 [ -n "$command" ] && amixer set Capture $command 
-mute=$(amixer get Master | grep -o "\[on\]")
+mute=$(amixer get Capture | grep -o "\[on\]")
 if [[ -n "$mute" ]]; then
       volume="$(amixer -D pipewire sget Capture | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%')%"
       icon=""

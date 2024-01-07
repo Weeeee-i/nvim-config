@@ -2,12 +2,8 @@
 
 {
 
-  programs.firefox = {
-    enable = true;
-  };
+  programs.firefox = { enable = true; };
 
-  programs.chromium = {
-    enable = true;
-  };
+  programs.chromium = { enable = true; };
 
 }
