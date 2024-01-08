@@ -14,6 +14,7 @@
     keepassxc
     p7zip
     gh
+    anki
   ];
 
 }
