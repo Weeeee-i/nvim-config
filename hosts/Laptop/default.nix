@@ -15,6 +15,7 @@
     ../common/xdg.nix
     ../common/auto_clean.nix
     ../common/podman.nix
+    ../common/bluetooth.nix
 
   ];
 
