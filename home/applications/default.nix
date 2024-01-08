@@ -15,6 +15,7 @@
     p7zip
     gh
     anki
+    libreoffice-fresh
   ];
 
 }
