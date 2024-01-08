@@ -17,6 +17,7 @@
     anki
     libreoffice-fresh
     nil
+    taplo
   ];
 
 }
