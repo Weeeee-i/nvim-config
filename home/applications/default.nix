@@ -16,6 +16,7 @@
     gh
     anki
     libreoffice-fresh
+    nil
   ];
 
 }
